@@ -1,0 +1,91 @@
+conky.config = {
+-- RSS News Conky by https://github.com/tr37ion
+	double_buffer = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_argb_value = 255,
+
+-- Borders
+	draw_borders = false,
+	border_inner_margin = 5,
+
+-- Contour
+	draw_outline = false,
+
+-- Shades
+	draw_shades = false,
+	default_shade_color = '#000000',
+
+-- Position
+	gap_y = -500,
+	gap_x = 115,
+
+-- Alignment
+	alignment = 'middle_left',
+-- alignment botton_left
+
+-- Interval
+	update_interval = 2,
+
+-- Colors
+	default_color = '#FFFFFF',
+	color1 = '#005391',
+	color2 = '#777777',
+	color3 = '#FFFFFF',
+	color4 = '#CCCCCC',
+	color5 = '#1793D1',
+
+-- Font
+	use_xft = true,
+	font = 'PF Tempesta Seven:pixelsize=8',
+
+-- Text alpha when using Xft
+-- xftalpha 0.10
+
+-- to prevent window from moving
+	use_spacer = 'none',
+	minimum_width = 0, minimum_height = 24,
+	maximum_width = 2560,
+	default_bar_width = 92, default_bar_height = 6,
+
+--${color2}Temp: ${color3}${execi acpi -t }°C ${color5}| \
+--${color2}CPU1: ${color3}${cpu cpu1}% \
+--${color2}CPU2: ${color3}${cpu cpu2}% \
+--${color2}CPU3: ${color3}${cpu cpu3}% \
+--${color2}CPU4: ${color3}${cpu cpu4}% ${color5} | \
+--${color2}Swap: ${color3}${swapperc}% ${color5} | \
+--Install 'lm_sensors' and exec 'sensors-detect' then run 'sensors' to get your IDs | \
+--${color2}MB Temp: $alignr ${execi 30 sensors | grep 'Physical id 0:' | cut -c17-18}°C ${color5} | \
+--${color2}GPU Intel Temp: $alignr ${execi 30 sensors | grep 'Core 0:' | cut -c16-17}°C ${color5} | \
+--${color2}GPU NV2 Temp: $alignr ${execi 30 sensors | grep 'Core 1:' | cut -c16-17}°C ${color5} | \
+--${color2}CPU1: ${color1}${voffset 1}${cpugraph cpu1 8,50} ${color2} ${cpu cpu1}% ${voffset -1} \
+--${color2}CPU2: ${color1}${voffset 1}${cpugraph cpu2 8,50} ${color2} ${cpu cpu2}% ${voffset -1} \
+--${color2}CPU3: ${color1}${voffset 1}${cpugraph cpu3 8,50} ${color2} ${cpu cpu3}% ${voffset -1} \
+--${color2}CPU4: ${color1}${voffset 1}${cpugraph cpu4 8,50} ${color2} ${cpu cpu4}% ${voffset -1} ${color5}| \
+
+};
+
+conky.text = [[
+${color5}${font OpenLogos:size=25}B${font}${voffset -10} \
+${color2}Time: ${color3}${time %e %B %Y %I:%M:%S %p}${color5}| \
+${color2}CPU: ${color5}${voffset 1}${cpugraph cpu1 8,50}${voffset -1} \
+${color2}${color5}${voffset 1}${cpugraph cpu2 8,50}${voffset -1} \
+${color2}${color5}${voffset 1}${cpugraph cpu3 8,50}${voffset -1} \
+${color2}${color5}${voffset 1}${cpugraph cpu4 8,50}${voffset -1} ${color5} \
+${color2}Trottle: ${color3}${freq_g} GHz ${color5}| \
+${color2}Battery: ${color5}${voffset 1}${battery_bar 6,30 BAT0} ${battery_time}${voffset -1}${color5}| \
+${color2}RAM: ${color3}${memperc}% ${color5}| \
+${color4}Free: \
+${color2}home ${color3}${fs_free_perc /home}% \
+${color2}boot ${color3}${fs_free_perc /boot}% \
+${color2}root ${color3}${fs_free_perc /root}% ${color5}\
+${color2}usb ${color3}${fs_free_perc /dev/sdb2}% ${color4}free ${color5}| \
+${color2}Uptime: ${color3}${uptime} ${color5}| \
+${color2}Kernel: ${color3}${kernel} ${color5}| \
+${color2}Uptime: ${color3}${uptime} ${color5}| \
+${color2}Eth0: ${color4}DOWN ${color5}${voffset 1}${downspeedgraph eth0 8,20}${voffset -1} ${color4} UP ${color5}${voffset 1}${upspeedgraph eth0 8,20}${voffset -1} ${color5}| \
+${color2}Top: ${color3} ${top name 1} ${color2}cpu/ram:${color4}${top cpu 1}%${top mem 1}%
+]];

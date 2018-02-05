@@ -1,0 +1,68 @@
+conky.config = {
+-- RSS News Conky by https://github.com/tr37ion
+	double_buffer = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_argb_value = 255,
+
+-- Borders
+	draw_borders = false,
+	border_inner_margin = 5,
+
+-- Contour around fonts
+	draw_outline = false,
+
+-- Shades
+	draw_shades = false,
+	default_shade_color = '#222222',
+
+-- Position
+	gap_y = -320,
+	gap_x = 950,
+
+-- Alignment
+	alignment = 'middle_left',
+-- alignment botton_left
+
+-- Interval
+	update_interval = 2,
+
+-- Colors
+	default_color = '#FFFFFF',
+	color1 = '#1793D1',
+	color2 = '#535353',
+	color3 = '#FFFFFF',
+	color4 = '#666666',
+	color5 = '#1793D1',
+
+-- Font
+	use_xft = true,
+	font = 'PF Tempesta Seven:pixelsize=8',
+
+-- Text alpha when using Xft
+--xftalpha 0.10
+
+-- to prevent window from moving
+--use_spacer none
+	minimum_width = 400, minimum_height = 300,
+	maximum_width = 390,
+	default_bar_width = 92, default_bar_height = 6,
+
+};
+
+conky.text = [[
+${color1}ArchLinux - News
+${color4}${rss https://www.archlinux.org/feeds/news/ 120 item_titles 6}
+
+${color1}Web Upd8 - News
+${color4}${rss http://feeds2.feedburner.com/webupd8 15 item_titles 4}
+
+${color1}New Zealand - News
+${color4}${rss http://www.stuff.co.nz/rss/ 15 item_titles 4}
+
+${color1}Humblebundle - News
+${color4}${rss http://blog.humblebundle.com/rss 15 item_titles 2}
+]];

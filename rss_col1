@@ -1,0 +1,72 @@
+conky.config = {
+-- RSS News Conky by https://github.com/tr37ion
+--avoid flicker
+	double_buffer = true,
+
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_argb_value = 255,
+
+-- Borders
+	draw_borders = false,
+	border_inner_margin = 5,
+
+-- Contour around fonts
+	draw_outline = false,
+
+-- Shades
+	draw_shades = false,
+	default_shade_color = '#222222',
+
+-- Position
+	gap_y = -320,
+	gap_x = 150,
+
+-- Alignment
+	alignment = 'middle_left',
+-- alignment botton_left
+
+-- Interval
+	update_interval = 2,
+
+-- Colors
+	default_color = '#FFFFFF',
+	color1 = '#1793D1',
+	color2 = '#535353',
+	color3 = '#FFFFFF',
+	color4 = '#666666',
+	color5 = '#115588',
+
+-- Font
+	use_xft = true,
+	font = 'PF Tempesta Seven:pixelsize=8',
+
+-- Text alpha when using Xft
+--xftalpha 0.10
+
+-- to prevent window from moving
+--use_spacer none
+	minimum_width = 400, minimum_height = 300,
+	maximum_width = 390,
+	default_bar_width = 92, default_bar_height = 6,
+
+--${color2}${font PF Tempesta Seven:size=6}${rss http://worldofgnome.org/feed/ 1 item_title 1}${font}
+--${color5}${font PF Tempesta Seven:size=5}${rss http://worldofgnome.org/feed/ 1 item_desc 1}${font}
+
+
+};
+
+conky.text = [[
+${color1}Lxer - News
+${color4}${rss http://lxer.com/module/newswire/headlines.rss 15 item_titles 6}
+
+${color1}Gulli - News
+${color4}${rss http://ticker.gulli.com/rss 15 item_titles 6}
+
+${color1}Golem - News
+${color4}${rss http://rss.golem.de/rss.php?feed=RSS1.0 15 item_titles 6}
+
+]];
